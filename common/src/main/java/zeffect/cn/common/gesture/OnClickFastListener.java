@@ -33,7 +33,7 @@ public abstract class OnClickFastListener implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
+    public final void onClick(View v) {
         if (isFastDoubleClick()) {
             return;
         }
