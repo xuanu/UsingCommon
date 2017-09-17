@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import zeffect.cn.common.activity.ActivityUtils;
 import zeffect.cn.common.gesture.OnClickFastListener;
+import zeffect.cn.common.log.L;
 import zeffect.cn.common.view.ViewUtils;
 import zeffect.cn.common.weak.WeakAsyncTask;
 import zeffect.cn.common.weak.WeakHandler;

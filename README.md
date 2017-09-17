@@ -47,3 +47,20 @@ IntentUtils.INSTANCE.openCamera(activity,file,code);//打开相机拍照
 IntentUtils.INSTANCE.openGallery(activity,code);//打开相册选图片
 IntentUtils.INSTANCE.getGalleryPath(activity,code);//选完相册图片后，用这个得到路径
 ```
+
+- [SpUtils](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/sp/SpUtils.kt);SharedPreferences存储
+```
+putString(context,key,string);
+getString(...)
+putInt(...)
+getInt(...)
+putLong(...)
+getLong(...)
+putFloat(...)
+getFloat(...)
+putBoolean(...)
+getBoolean(...)
+```
+
+- [L](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/log/L.kt);日志打印类，同Log
+> L.INSTANCE.isDebug,可以控制是否打印日志，发包时就可以关闭。
