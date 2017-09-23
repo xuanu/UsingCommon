@@ -15,10 +15,17 @@ import zeffect.cn.common.view.ViewUtils;
 import zeffect.cn.common.weak.WeakAsyncTask;
 import zeffect.cn.common.weak.WeakHandler;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        findViewById(R.id.di1_layout).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

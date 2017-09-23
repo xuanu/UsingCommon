@@ -65,3 +65,8 @@ getBoolean(...)
 
 - [L](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/log/L.kt);日志打印类，同Log
 > L.INSTANCE.isDebug,可以控制是否打印日志，发包时就可以关闭。
+
+- [DarkButton.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkButton.ke);默认实现按下效果的控件
+- [DarkImage.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkImage.ke);默认实现按下效果的控件
+- [DarkText.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkText.ke);默认实现按下效果的控件
+> 默认实现了按下的效果，文字颜色的变化是用当前文字的透明度*0.5来实现的。

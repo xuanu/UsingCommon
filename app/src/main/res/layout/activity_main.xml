@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/di1_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <zeffect.cn.common.view.DarkImage
+                android:id="@+id/di1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_launcher_background"
+                android:src="@mipmap/ic_launcher" />
+
+            <zeffect.cn.common.view.DarkText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@mipmap/ic_launcher"
+                android:text="这个文字 "
+                android:textColor="@color/colorAccent" />
+
+            <zeffect.cn.common.view.DarkButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_launcher"
+                android:text="这个是按钮"
+                android:textColor="@color/colorPrimary" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
