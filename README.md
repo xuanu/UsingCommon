@@ -66,7 +66,6 @@ getBoolean(...)
 - [L](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/log/L.kt);日志打印类，同Log
 > L.INSTANCE.isDebug,可以控制是否打印日志，发包时就可以关闭。
 
-<<<<<<< HEAD
 - [FontUtils.kt](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/font/FontUtils.kt);字体相关工具
 ```
 FontUtils.INSTANCE.fontHeight(fontsize);//获取字体高度
@@ -80,9 +79,7 @@ NetUtils.INSTANCE.isWifi(context);//WIFI
 NetUtils.INSTANCE.isMobile(context);//流量
 NetUtils.INSTANCE.openSetting(activity); //打开设置界面
 ```
-=======
 - [DarkButton.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkButton.kt);默认实现按下效果的控件
 - [DarkImage.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkImage.kt);默认实现按下效果的控件
 - [DarkText.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkText.kt);默认实现按下效果的控件
 > 默认实现了按下的效果，文字颜色的变化是用当前文字的透明度*0.5来实现的。
->>>>>>> origin/master
