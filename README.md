@@ -65,3 +65,17 @@ getBoolean(...)
 
 - [L](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/log/L.kt);日志打印类，同Log
 > L.INSTANCE.isDebug,可以控制是否打印日志，发包时就可以关闭。
+
+- [FontUtils.kt](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/font/FontUtils.kt);字体相关工具
+```
+FontUtils.INSTANCE.fontHeight(fontsize);//获取字体高度
+```
+
+- [NetUtils.kt](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/network/NetUtils.kt);网络变化
+> 使用isWifi或isMobile时，请先判断网络是否连接。
+```
+NetUtils.INSTANCE.isConnected(context);//网络是否可用（不是是否连接）
+NetUtils.INSTANCE.isWifi(context);//WIFI
+NetUtils.INSTANCE.isMobile(context);//流量
+NetUtils.INSTANCE.openSetting(activity); //打开设置界面
+```
