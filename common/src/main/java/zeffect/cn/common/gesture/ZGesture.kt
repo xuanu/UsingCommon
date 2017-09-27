@@ -63,6 +63,7 @@ class ZGesture(context: Context, gesture: OnGesture?) {
                 WeakHandler(mContext.mainLooper).postDelayed(mLongPrRun.apply { this.mEvent = event }, ViewConfiguration.getLongPressTimeout().toLong())
             }
             MotionEvent.ACTION_POINTER_DOWN -> {
+                cancel2Finger = false
                 mDoubleRun.cancel(true)
                 WeakHandler(mContext.mainLooper).removeCallbacks(mDoubleRun)
                 mLongPrRun.cancel(true)
@@ -221,6 +222,11 @@ class ZGesture(context: Context, gesture: OnGesture?) {
                         }
                     }
                 }
+                //手指抬起来之后，一些状态恢复
+                cancel2Finger = false
+                cancel1Finger = false
+                mDownPoints = Points(0f, 0f)
+                mMoveEndPoints = Points(0f, 0f)
             }
         }
         return true

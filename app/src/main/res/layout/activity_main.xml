@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/root_layout"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
-
-    <Button
-        android:id="@+id/test_dark"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@color/colorAccent"
-        android:drawableTop="@mipmap/ic_launcher"
-        android:src="@drawable/ic_launcher_background"
-        android:text="测试点击变暗效果"/>
-</LinearLayout>
-=======
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 android:id="@+id/root_layout"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,22 +20,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_launcher_background"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_launcher"/>
 
             <zeffect.cn.common.view.DarkText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableRight="@mipmap/ic_launcher"
-                android:text="这个文字 "
-                android:textColor="@color/colorAccent" />
+                android:text="测试点击效果 "
+                android:textColor="@color/colorAccent"/>
 
             <zeffect.cn.common.view.DarkButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/ic_launcher"
                 android:text="这个是按钮"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/di2_layout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/colorAccent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="这个布局用来测试手势监听"/>
         </LinearLayout>
     </LinearLayout>
-</ScrollView>
->>>>>>> origin/master
+</android.support.design.widget.CoordinatorLayout>
