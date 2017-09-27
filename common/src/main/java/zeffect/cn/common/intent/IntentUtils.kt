@@ -5,7 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Environment
+import android.provider.Contacts
 import android.provider.MediaStore
+import android.provider.Settings
 import java.io.File
 
 
@@ -45,7 +47,7 @@ object IntentUtils {
      * @param pContext 上下文
      * @param pIntent  用choseImageFromGallery返回的intent
      * @return 绝对路径
-     * @see ChoseImage.choseImageFromGallery
+     * @see ChoseImage#choseImageFromGallery
      */
     fun getGalleryPath(pContext: Context, pIntent: Intent?): String {
         var localPath = ""
@@ -61,6 +63,82 @@ object IntentUtils {
             }
         }
         return localPath
+    }
+
+    /***
+     * 打开电话
+     * @param pContext 上下文
+     */
+    fun openPhone(pContext: Context, tel: Int = 1) {
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + tel))
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        if (intent.resolveActivity(pContext.packageManager) != null) {
+            pContext.startActivity(intent)
+        }
+
+    }
+
+    /***
+     * 打开设置
+     * * @param pContext 上下文
+     */
+    fun openSetting(pContext: Context) {
+        val intent = Intent(Settings.ACTION_SETTINGS)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        pContext.startActivity(intent)
+    }
+
+    /**
+     * 打开相机
+     * * @param pContext 上下文
+     */
+    fun openCarmae(pContext: Context) {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        if (intent.resolveActivity(pContext.packageManager) != null) {
+            pContext.startActivity(intent)
+        }
+    }
+
+    /***
+     * 打开短信
+     *
+     * * @param pContext 上下文
+     */
+    fun openSms(pContext: Context, phoneNumber: Int = 1, content: String = "") {
+        val smsToUri = Uri.parse("smsto:$phoneNumber")
+        val intent = Intent(Intent.ACTION_SEND, smsToUri)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.putExtra("sms_body", content)
+        if (intent.resolveActivity(pContext.packageManager) != null) {
+            pContext.startActivity(intent)
+        }
+    }
+
+    /***
+     * 打开录音
+     *  @param pContext 上下文
+     */
+    fun openRecord(pContext: Context) {
+        val intent = Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        if (intent.resolveActivity(pContext.packageManager) != null) {
+            pContext.startActivity(intent)
+        }
+    }
+
+    /***
+     * 打开通信录
+     * @param pContext 上下文
+     */
+    fun openPeople(pContext: Context) {
+        val intent = Intent()
+        intent.action = Intent.ACTION_VIEW
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.data = Contacts.People.CONTENT_URI
+        if (intent.resolveActivity(pContext.packageManager) != null) {
+            pContext.startActivity(intent)
+        }
     }
 
 
