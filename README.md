@@ -13,7 +13,7 @@ View.setOnClickListener(new OnClickFastListener(time){});
 ```
 
 - [ZGesture](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/ZGesture.kt);手势监听类，监听了单双指的很多事件
-> 事件见：[OnGesture](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/OnGesture.java);
+> 事件见：[OnGesture](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/OnGesture.kt);
 > //使用方法与GestureDetector一致，仅对其进行封装，方便使用
 `ZGesture(context,OnGesture).onTouchEvent(event)`
 
