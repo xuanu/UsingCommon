@@ -47,6 +47,13 @@ ActivityUtils.INSTANCE.bgAlpha(this,0.5f);//设置背景透明度
 IntentUtils.INSTANCE.openCamera(activity,file,code);//打开相机拍照
 IntentUtils.INSTANCE.openGallery(activity,code);//打开相册选图片
 IntentUtils.INSTANCE.getGalleryPath(activity,code);//选完相册图片后，用这个得到路径
+IntentUtils.INSTANCE.openPhone(context,number:Int=1);//打电话
+IntentUtils.INSTANCE.openSetting(context);//打开系统设置
+IntentUtils.INSTANCE.openCamera(context);//打开相机，啥都不做
+IntentUtils.INSTANCE.openSms(context,number:Int=1,content="");//发短信
+IntentUtils.INSTANCE.openRecord(context);//打开录音机
+IntentUtils.INSTANCE.openPeople(context);//打开通讯录
+IntentUtils.INSTANCE.openWifiSetting(context);//打开网络设置
 ```
 
 - [SpUtils](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/sp/SpUtils.kt);SharedPreferences存储

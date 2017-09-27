@@ -56,7 +56,7 @@ class MediaUtils {
         }
         try {
             //            if (mPlayer.isPlaying()) {
-            mPlayer!!.reset()
+            mPlayer?.reset()
             //            }
         } catch (e: IllegalStateException) {
             mPlayer = null
@@ -64,18 +64,18 @@ class MediaUtils {
         }
 
         try {
-            mPlayer!!.reset()
-            mPlayer!!.setDataSource(nowPath)
-            mPlayer!!.prepareAsync()
-            mPlayer!!.setOnPreparedListener { mp -> mp.start() }
-            mPlayer!!.setOnCompletionListener {
+            mPlayer?.reset()
+            mPlayer?.setDataSource(nowPath)
+            mPlayer?.prepareAsync()
+            mPlayer?.setOnPreparedListener { mp -> mp.start() }
+            mPlayer?.setOnCompletionListener {
                 val next = position + 1
                 if (mPaths.size - 1 < next || next < 0)
                     stop()
                 else
                     play(next)
             }
-            mPlayer!!.setOnErrorListener { player, arg1, arg2 ->
+            mPlayer?.setOnErrorListener { player, arg1, arg2 ->
                 stop()
                 true
             }
@@ -91,9 +91,9 @@ class MediaUtils {
     fun stop() {
         if (mPlayer != null) {
             try {
-                mPlayer!!.reset()
-                mPlayer!!.release()
-                mPlayer!!.stop()
+                mPlayer?.reset()
+                mPlayer?.release()
+                mPlayer?.stop()
             } catch (E: IllegalStateException) {
                 E.printStackTrace()
             }
@@ -104,7 +104,7 @@ class MediaUtils {
 
 
     private fun removeListener() {
-        if (mOnPlayerWeakReference != null && mOnPlayerWeakReference!!.get() != null)
+        if (mOnPlayerWeakReference != null && mOnPlayerWeakReference?.get() != null)
             mOnPlayerWeakReference?.get()?.onStop()
     }
 

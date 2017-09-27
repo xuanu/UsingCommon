@@ -1,6 +1,7 @@
 package zeffect.cn.common.intent
 
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -139,6 +140,19 @@ object IntentUtils {
         if (intent.resolveActivity(pContext.packageManager) != null) {
             pContext.startActivity(intent)
         }
+    }
+
+    /**
+     * 打开网络设置界面
+     *
+     * @param activity 上下文
+     */
+    fun openWifiSetting(activity: Activity) {
+        val intent = Intent("/")
+        val cm = ComponentName("com.android.settings", "com.android.settings.WirelessSettings")
+        intent.component = cm
+        intent.action = "android.intent.action.VIEW"
+        activity.startActivityForResult(intent, 0)
     }
 
 
