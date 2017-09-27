@@ -49,5 +49,77 @@
                 android:layout_height="wrap_content"
                 android:text="这个布局用来测试手势监听"/>
         </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可以左右动,这一栏是用来测试nIntentUtils的功能"/>
+
+                <Button
+                    android:id="@+id/di3_open_phone_no_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打电话，没有设置号码"/>
+
+                <Button
+                    android:id="@+id/di3_open_phone_with_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="调用打电话，带有号码：10086"/>
+
+                <Button
+                    android:id="@+id/di3_open_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打开设置"/>
+
+                <Button
+                    android:id="@+id/di3_open_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打开相机"/>
+
+                <Button
+                    android:id="@+id/di3_open_sms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打开短信，啥都不带"/>
+
+                <Button
+                    android:id="@+id/di3_open_sms_with_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打开短信，带手机号"/>
+
+                <Button
+                    android:id="@+id/di3_open_sms_with_number_with_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打开短信，带手机号,带内容"/>
+
+                <Button
+                    android:id="@+id/di3_open_record_audio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打开录音"/>
+
+                <Button
+                    android:id="@+id/di3_open_txl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打开通讯录"/>
+
+
+            </LinearLayout>
+        </HorizontalScrollView>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
