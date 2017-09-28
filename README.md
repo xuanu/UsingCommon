@@ -86,6 +86,8 @@ NetUtils.INSTANCE.isConnected(context);//网络是否可用（不是是否连接
 NetUtils.INSTANCE.isWifi(context);//WIFI
 NetUtils.INSTANCE.isMobile(context);//流量
 NetUtils.INSTANCE.openSetting(activity); //打开设置界面
+NetUtils.INSTANCE.getWifiIp();//获取本机的ip ,需要权限：android.Manifest.permission.INTERNET
+NetUtils.INSTANCE.getMac();//获取本机mac;需要权限：android.Manifest.permission.INTERNET  参考：[android4.0-7.0获取mac地址，方法是google提供。](http://blog.csdn.net/dazhang357/article/details/73903831);
 ```
 - [DarkButton.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkButton.kt);默认实现按下效果的控件
 - [DarkImage.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkImage.kt);默认实现按下效果的控件
