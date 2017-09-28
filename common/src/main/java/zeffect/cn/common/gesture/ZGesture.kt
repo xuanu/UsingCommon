@@ -1,9 +1,8 @@
-package com.qimon.commonlibrary.gesture
+package zeffect.cn.common.gesture
 
 import android.content.Context
 import android.view.MotionEvent
 import android.view.ViewConfiguration
-import zeffect.cn.common.gesture.OnGesture
 import zeffect.cn.common.weak.WeakHandler
 
 /**

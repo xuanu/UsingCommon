@@ -4,8 +4,8 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.view.View
-import com.qimon.commonlibrary.gesture.ZGesture
 import zeffect.cn.common.gesture.OnGesture
+import zeffect.cn.common.gesture.ZGesture
 import zeffect.cn.common.intent.IntentUtils
 
 class MainActivity : Activity(), View.OnClickListener {

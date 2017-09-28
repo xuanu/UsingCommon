@@ -2,8 +2,6 @@ package zeffect.cn.common.gesture
 
 import android.view.MotionEvent
 
-import com.qimon.commonlibrary.gesture.ZGesture
-
 /**
  * Created by Administrator on 2017/9/9.
  */
