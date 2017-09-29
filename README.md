@@ -124,3 +124,11 @@ UsageStatsUtils.openUsageSetting(activity,int code);//打开开关，只有用�
  AppUtils.getHasMainInfo(context);//本机带启动界面的应用列表
   AppUtils.getTopPackageName(context,defaultTime:Int=5);//获取最后运行的应用，当前运行的应用  。
 ```
+
+- [Md5Encrypt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/encode/Md5Encrypt.kt);MD5加密码
+`Md5Encrypt.md5(string)`;加密字符
+
+- [AssetsUtils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/assets/AssetsUtils.kt);  获取文件
+```
+AssetsUtils.fileString(context,fileName);//获取指定文件的内容，filename可以带路径
+```

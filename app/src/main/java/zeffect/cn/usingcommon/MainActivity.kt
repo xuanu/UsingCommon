@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import org.jetbrains.anko.find
 import zeffect.cn.common.app.AppUtils
+import zeffect.cn.common.assets.AssetsUtils
 import zeffect.cn.common.gesture.OnGesture
 import zeffect.cn.common.gesture.ZGesture
 import zeffect.cn.common.intent.IntentUtils
@@ -57,6 +58,7 @@ class MainActivity : Activity(), View.OnClickListener {
             showResult.text = ""
             AppUtils.getApps(this, 1).forEach { showResult.text = "${showResult.text}......系统应用：${it.packageName}" }
         }
+        find<View>(R.id.di6_get_assets).setOnClickListener { showResult.text = AssetsUtils.fileString(this, "test") }
     }
 
     override fun onClick(view: View) {
