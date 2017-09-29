@@ -28,4 +28,5 @@ dependencies {
     })
     implementation project(':common')
     implementation 'com.android.support:design:26.0.0-beta1'
+    compile "org.jetbrains.anko:anko-sdk15:+"
 }

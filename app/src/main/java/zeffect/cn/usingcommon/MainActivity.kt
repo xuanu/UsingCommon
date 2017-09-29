@@ -3,16 +3,22 @@ package zeffect.cn.usingcommon
 import android.app.Activity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.text.TextUtils
 import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import org.jetbrains.anko.find
+import zeffect.cn.common.app.AppUtils
 import zeffect.cn.common.gesture.OnGesture
 import zeffect.cn.common.gesture.ZGesture
 import zeffect.cn.common.intent.IntentUtils
+import zeffect.cn.common.network.NetUtils
 
 class MainActivity : Activity(), View.OnClickListener {
     private var mZGesture: ZGesture? = null
     private var mView: View? = null
     private val mContext by lazy { this }
-
+    private val showResult by lazy { find<TextView>(R.id.show_result) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,6 +36,27 @@ class MainActivity : Activity(), View.OnClickListener {
         findViewById<View>(R.id.di3_open_sms_with_number).setOnClickListener(this)
         findViewById<View>(R.id.di3_open_sms_with_number_with_content).setOnClickListener(this)
         findViewById<View>(R.id.di3_open_txl).setOnClickListener(this)
+        find<View>(R.id.di4_getIp).setOnClickListener {
+            showResult.text = "当前mac地址：${NetUtils.getMac()},ip${NetUtils.getWifiIp()}"
+        }
+        find<Button>(R.id.di5_getMainApp).setOnClickListener {
+            showResult.text = ""
+            AppUtils.getHasMainInfo(this).forEach {
+                showResult.text = "${showResult.text}……包名${it.activityInfo.packageName},打开页面${if (!TextUtils.isEmpty(it.activityInfo.taskAffinity)) it.activityInfo.taskAffinity else it.activityInfo.name}"
+            }
+        }
+        find<View>(R.id.di5_all).setOnClickListener {
+            showResult.text = ""
+            AppUtils.getApps(this, 2).forEach { showResult.text = "${showResult.text}......全部应用：${it.packageName}" }
+        }
+        find<View>(R.id.di5_user_install).setOnClickListener {
+            showResult.text = ""
+            AppUtils.getApps(this).forEach { showResult.text = "${showResult.text}......用户安装应用：${it.packageName}" }
+        }
+        find<View>(R.id.di5_system).setOnClickListener {
+            showResult.text = ""
+            AppUtils.getApps(this, 1).forEach { showResult.text = "${showResult.text}......系统应用：${it.packageName}" }
+        }
     }
 
     override fun onClick(view: View) {

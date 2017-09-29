@@ -86,10 +86,41 @@ NetUtils.INSTANCE.isConnected(context);//网络是否可用（不是是否连接
 NetUtils.INSTANCE.isWifi(context);//WIFI
 NetUtils.INSTANCE.isMobile(context);//流量
 NetUtils.INSTANCE.openSetting(activity); //打开设置界面
-NetUtils.INSTANCE.getWifiIp();//获取本机的ip ,需要权限：android.Manifest.permission.INTERNET
-NetUtils.INSTANCE.getMac();//获取本机mac;需要权限：android.Manifest.permission.INTERNET  参考：[android4.0-7.0获取mac地址，方法是google提供。](http://blog.csdn.net/dazhang357/article/details/73903831);
+NetUtils.INSTANCE.getWifiIp();//获取本机的ip ,需要网络开启，权限：android.Manifest.permission.INTERNET。
+NetUtils.INSTANCE.getMac();//获取本机mac;需要网络开启，权限：android.Manifest.permission.INTERNET  参考：[android4.0-7.0获取mac地址，方法是google提供。](http://blog.csdn.net/dazhang357/article/details/73903831);
 ```
 - [DarkButton.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkButton.kt);默认实现按下效果的控件
 - [DarkImage.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkImage.kt);默认实现按下效果的控件
 - [DarkText.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkText.kt);默认实现按下效果的控件
 > 默认实现了按下的效果，文字颜色的变化是用当前文字的透明度*0.5来实现的。
+
+- [PackageUtils.java]();抄自：Trinea/[android-common](https://github.com/Trinea/android-common/blob/master/src/cn/trinea/android/common/util/PackageUtils.java)
+```
+ * <li>{@link PackageUtils#installNormal(Context, String)}</li>//安装程序，普通方式。
+ * <li>{@link PackageUtils#installSilent(Context, String)}</li>//安装程序，静默安装
+ * <li>{@link PackageUtils#install(Context, String)}</li>//安装程序，静默优先
+ * <li>{@link PackageUtils#uninstallNormal(Context, String)}</li>//卸载程序，普通方式。
+ * <li>{@link PackageUtils#uninstallSilent(Context, String)}</li>//卸载，静默
+ * <li>{@link PackageUtils#uninstall(Context, String)}</li>//卸载，静默优先
+ * <li>{@link PackageUtils#isSystemApplication(Context)}</li>//是否系统应用
+ * <li>{@link PackageUtils#isSystemApplication(Context, String)}</li>//指定应用是否为系统应用
+ * <li>{@link PackageUtils#isSystemApplication(PackageManager, String)}</li>//指定应用是否为系统应用
+ * <li>{@link PackageUtils#getInstallLocation()} get system install location</li> //
+ * <li>{@link PackageUtils#startInstalledAppDetails(Context, String)} start InstalledAppDetails Activity</li>  //打开已安装应用详情
+```
+
+- [UsageStatsUtils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/app/UsageStatsUtils.java);//用于获取最近运行的程序，配合AppUtils#getTopPackageName();使用
+```
+UsageStatsUtils.hasUsageOption(context);//有无有UsageStats的选项
+UsageStatsUtils.isOpen(context);//打开状态
+UsageStatsUtils.openUsageSetting(activity,int code);//打开开关，只有用户打开了本程序的这个选项，才能统计最近应用的信息
+```
+
+
+- [AppUtils.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/app/AppUtils.kt);//应用相关
+```
+ AppUtils.getApps(context,type:int);//获取本机应用：0用户安装的，1系统应用，2全部应用
+ AppUtils.isPackageExist(context,packagename);//指定包名是否安装
+ AppUtils.getHasMainInfo(context);//本机带启动界面的应用列表
+  AppUtils.getTopPackageName(context,defaultTime:Int=5);//获取最后运行的应用，当前运行的应用  。
+```
