@@ -2,6 +2,7 @@ package zeffect.cn.common.assets
 
 import android.content.Context
 import android.text.TextUtils
+import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.InputStream
 
@@ -28,16 +29,24 @@ object AssetsUtils {
         var inputs: InputStream? = null
         try {
             inputs = pContext.assets.open(pName)
-            val buffer = ByteArray(10240)
-            var len: Int = 0
-            val sb = StringBuilder()
-            while (inputs.read(buffer).apply { len = this } > 0) sb.append(String(buffer, 0, len))
-            retuString = sb.toString()
+            retuString = inputStream2String(inputs)
             inputs.close()
         } catch (pE: IOException) {
             pE.printStackTrace()
+        } finally {
+            if (inputs != null) inputs.close()
+            return retuString
         }
+    }
 
-        return retuString
+    @Throws(IOException::class)
+    fun inputStream2String(inputs: InputStream): String {
+        val baos = ByteArrayOutputStream()
+        var i = inputs.read()
+        while (i != -1) {
+            baos.write(i)
+            i = inputs.read()
+        }
+        return baos.toString()
     }
 }
