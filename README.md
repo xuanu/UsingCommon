@@ -128,7 +128,13 @@ UsageStatsUtils.openUsageSetting(activity,int code);//打开开关，只有用�
 - [Md5Encrypt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/encode/Md5Encrypt.kt);MD5加密码
 `Md5Encrypt.md5(string)`;加密字符
 
-- [AssetsUtils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/assets/AssetsUtils.kt);  获取文件
+- [AssetsUtils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/assets/AssetsUtils.kt);  获取Assets文件
 ```
 AssetsUtils.fileString(context,fileName);//获取指定文件的内容，filename可以带路径
+```
+
+- [FileUtils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/file/FileUtils.kt);文件读写
+```
+FileUtils.read(path);//读取文件内容
+FileUtils.write(path,content,append);//写入文件，是否追加
 ```

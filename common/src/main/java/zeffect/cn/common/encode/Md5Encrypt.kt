@@ -32,8 +32,6 @@ object Md5Encrypt {
                 }
                 buf.append(Integer.toHexString(i))
             }
-            // Log.e("555","result: " + buf.toString());//32位的加密
-            // Log.e("555","result: " + buf.toString().substring(8,24));//16位的加密
         } catch (e: NoSuchAlgorithmException) {
             e.printStackTrace()
         }

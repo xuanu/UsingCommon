@@ -18,6 +18,11 @@ import java.io.InputStream
  * @author zzx
  */
 object AssetsUtils {
+    /***
+     * 文件 转String
+     * @param pContext 上下文
+     * @param pName 文件名，可带路径
+     */
     fun fileString(pContext: Context, pName: String): String {
         if (pContext == null) {
             return ""
@@ -39,14 +44,17 @@ object AssetsUtils {
         }
     }
 
-    @Throws(IOException::class)
     fun inputStream2String(inputs: InputStream): String {
         val baos = ByteArrayOutputStream()
-        var i = inputs.read()
-        while (i != -1) {
-            baos.write(i)
-            i = inputs.read()
+        try {
+            var i = inputs.read()
+            while (i != -1) {
+                baos.write(i)
+                i = inputs.read()
+            }
+        } catch (e: IOException) {
+        } finally {
+            return baos.toString()
         }
-        return baos.toString()
     }
 }
