@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.text.TextUtils
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -89,6 +90,7 @@ class MainActivity : Activity(), View.OnClickListener {
             super.on2RightUp(pFloat)
             toast("双指向右抬起")
         }
+
 
 
 
