@@ -137,4 +137,5 @@ AssetsUtils.fileString(context,fileName);//获取指定文件的内容，filenam
 ```
 FileUtils.read(path);//读取文件内容
 FileUtils.write(path,content,append);//写入文件，是否追加
+FileUtils.deleteFiles(path);//删除文件或文件夹
 ```

@@ -2,10 +2,7 @@ package zeffect.cn.common.file
 
 import android.text.TextUtils
 import zeffect.cn.common.assets.AssetsUtils
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileWriter
-import java.io.IOException
+import java.io.*
 
 /**
  * Created by Administrator on 2017/10/14.
@@ -29,21 +26,53 @@ object FileUtils {
      * @param content 内容
      * @param append 是否追加
      */
-    fun write(filePath: String, content: String, append: Boolean = false): Boolean {
+    fun write(filePath: String, content: String, append: Boolean = false, charset: String = "UTF-8"): Boolean {
         try {
             if (TextUtils.isEmpty(filePath)) return false
             val tempFile = File(filePath)
             if (!tempFile.exists() || tempFile.isDirectory) return false
-            val writer = FileWriter(filePath, append)
+            val writer = BufferedWriter(OutputStreamWriter(FileOutputStream(filePath, append), charset))
             writer.write(content)
+            writer.flush()
             writer.close()
             return true
         } catch (e: IOException) {
             e.printStackTrace()
             return false
         }
+    }
 
 
+    /**
+     * 删除文件，或文件夹
+     *
+     * @param file 文件
+     * @return 成功／失败
+     */
+    fun deleteFiles(file: File?): Boolean {
+        if (file != null) {
+            if (!file.exists()) {
+                return true
+            }
+            if (file.isFile) {
+                return file.delete()
+            }
+            if (!file.isDirectory) {
+                return false
+            }
+            val listFiles = file.listFiles()
+            if (listFiles != null) {
+                for (f in listFiles) {
+                    if (f.isFile) {
+                        f.delete()
+                    } else if (f.isDirectory) {
+                        deleteFiles(f)
+                    }
+                }
+                return file.delete()
+            }
+        }
+        return false
     }
 
 }
