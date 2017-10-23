@@ -6,45 +6,45 @@ import android.view.MotionEvent
  * Created by Administrator on 2017/9/9.
  */
 
-abstract class OnGesture {
-    fun onTopUp() {}
-    fun onBottomUp() {}
+ abstract class OnGesture {
+    open fun onTopUp() {}
+    open  fun onBottomUp() {}
     open fun onLeftUp() {}
-    fun onRightUp() {}
-    fun onTopMove(pd: Float?) {}
-    fun onBottomMove(pd: Float?) {}
-    fun onLeftMove(pd: Float?) {}
-    fun onRightMove(pd: Float?) {}
-    fun onDown(pEvent: MotionEvent) {}
-    fun onUp(pEvent: MotionEvent) {}
-    fun onMove(event: MotionEvent) {}
+    open fun onRightUp() {}
+    open  fun onTopMove(pd: Float?) {}
+    open fun onBottomMove(pd: Float?) {}
+    open  fun onLeftMove(pd: Float?) {}
+    open   fun onRightMove(pd: Float?) {}
+    open   fun onDown(pEvent: MotionEvent) {}
+    open   fun onUp(pEvent: MotionEvent) {}
+    open  fun onMove(event: MotionEvent) {}
     /**
      * 单击
      */
-    fun onSingleUp() {}
+    open  fun onSingleUp() {}
 
     /**
      * 双击
      */
-    fun onDoubleUp() {}
+    open  fun onDoubleUp() {}
 
     /**
      * 长按
      */
-    fun onLongClick() {}
+    open fun onLongClick() {}
 
     //**********************双指手势区
-    fun on2ZoomBigMove(pDouble: Double?) {}
+    open  fun on2ZoomBigMove(pDouble: Double?) {}
 
-    fun on2ZoomBigUp(pDouble: Double?) {}
-    fun on2ZoomSmallMove(pDouble: Double?) {}
-    fun on2ZoomSmallUp(pDouble: Double?) {}
-    fun on2TopMove(pFloat: Float?) {}
-    fun on2BottomMove(pFloat: Float?) {}
-    fun on2LeftMove(pFloat: Float?) {}
-    fun on2RightMove(pFloat: Float?) {}
-    fun on2TopUp(pFloat: Float?) {}
-    fun on2BottomUp(pFloat: Float?) {}
+    open   fun on2ZoomBigUp(pDouble: Double?) {}
+    open  fun on2ZoomSmallMove(pDouble: Double?) {}
+    open  fun on2ZoomSmallUp(pDouble: Double?) {}
+    open   fun on2TopMove(pFloat: Float?) {}
+    open  fun on2BottomMove(pFloat: Float?) {}
+    open  fun on2LeftMove(pFloat: Float?) {}
+    open  fun on2RightMove(pFloat: Float?) {}
+    open   fun on2TopUp(pFloat: Float?) {}
+    open   fun on2BottomUp(pFloat: Float?) {}
     open fun on2LeftUp(pFloat: Float?) {}
     open fun on2RightUp(pFloat: Float?) {}
 
@@ -54,7 +54,7 @@ abstract class OnGesture {
      * @param pPoints0 上一次坐标
      * @param pPoints1 新的坐标
      */
-    fun on2ZoomBigMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pDouble: Double?) {
+    open fun on2ZoomBigMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pDouble: Double?) {
 
     }
 
@@ -64,31 +64,31 @@ abstract class OnGesture {
      * @param pPoints1 抬起时坐标
      * @param pDouble 间隔
      */
-    fun on2ZoomBigUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pDouble: Double?) {}
+    open  fun on2ZoomBigUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pDouble: Double?) {}
 
-    fun on2ZoomSmallMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pDouble: Double?) {
-
-    }
-
-    fun on2ZoomSmallUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pDouble: Double?) {
+    open  fun on2ZoomSmallMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pDouble: Double?) {
 
     }
 
-    fun on2TopMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+    open fun on2ZoomSmallUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pDouble: Double?) {
 
-    fun on2BottomMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+    }
 
-    fun on2LeftMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+    open fun on2TopMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
 
-    fun on2RightMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+    open  fun on2BottomMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
 
-    fun on2TopUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+    open fun on2LeftMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
 
-    fun on2BottomUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+    open fun on2RightMove(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
 
-    fun on2LeftUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+    open  fun on2TopUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
 
-    fun on2RightUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+    open  fun on2BottomUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+
+    open  fun on2LeftUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
+
+    open  fun on2RightUp(pPoints0: ZGesture.Points, pPoints1: ZGesture.Points, pFloat: Float?) {}
 
     //***************************取消事件
 
@@ -99,7 +99,7 @@ abstract class OnGesture {
      * 应该没有人要取消长按和单双击的回调吧。
      * @param finger  取消了几个手指的抬起事件
      */
-    fun cancelFinger(finger: Int) {
+    open  fun cancelFinger(finger: Int) {
 
     }
 

@@ -78,10 +78,7 @@ class MainActivity : Activity(), View.OnClickListener {
 
     private val mOnGesture = object : OnGesture() {
 
-        override fun onLeftUp() {
-            super.onLeftUp()
-            toast("单指左抬起")
-        }
+
 
         override fun on2LeftUp(pFloat: Float?) {
             super.on2LeftUp(pFloat)
@@ -92,6 +89,10 @@ class MainActivity : Activity(), View.OnClickListener {
             super.on2RightUp(pFloat)
             toast("双指向右抬起")
         }
+
+
+
+
     }
 
 
