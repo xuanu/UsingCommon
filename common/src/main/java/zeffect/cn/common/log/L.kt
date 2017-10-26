@@ -7,7 +7,7 @@ import zeffect.cn.common.BuildConfig
  * Created by Administrator on 2017/9/17.
  */
 object L {
-    var isDebug = BuildConfig.LOG// 是否需要打印bug，可以在application的onCreate函数里面初始化
+    var isDebug = false// 是否需要打印bug，可以在application的onCreate函数里面初始化
     private val TAG = "zeffect"
 
     // 下面四个是默认tag的函数

@@ -71,7 +71,7 @@ getBoolean(...)
 ```
 
 - [L](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/log/L.kt);日志打印类，同Log
-> release包时，会默认屏蔽日志，可修改。
+> 默认不输出日志，请使用下面的方法修改，在App模块调用`L.isDebug=BuildConfig.DEBUG;`
 > L.INSTANCE.isDebug,可以控制是否打印日志，发包时就可以关闭。
 
 - [FontUtils.kt](https://github.com/xuanu/UsingCommon/tree/master/common/src/main/java/zeffect/cn/common/font/FontUtils.kt);字体相关工具
