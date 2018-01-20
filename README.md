@@ -140,3 +140,12 @@ FileUtils.write(path,content,append);//写入文件，是否追加
 FileUtils.deleteFiles(path);//删除文件或文件夹
 FileUtils.getFileMd5(file);//读取文件MD5
 ```
+
+- [OpenFiles.java](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/file/OpenFiles.java);//本地文件 打开方式。
+```
+openFiles(Context context, Uri uri, String suffix)
+getSuffix(String filePath)
+//传入Uri，可以适配7.0以后的文件 权限
+//Uri tempUri = FileProvider.getUriForFile(pContext, "zeffect.cn.apks.filemanager", new File(param));
+//7.0以下可以传入Uri.from(new File(path));
+```
