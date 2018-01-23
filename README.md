@@ -149,3 +149,9 @@ getSuffix(String filePath)
 //Uri tempUri = FileProvider.getUriForFile(pContext, "zeffect.cn.apks.filemanager", new File(param));
 //7.0以下可以传入Uri.from(new File(path));
 ```
+
+-[Mp3Utils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/mp3/Mp3Utils.java);//mp3相关
+```
+heBingMp3(File savePath, String... paths); //合并MP3
+clip(String inputPath, String outputPath, int start, int end);//裁剪MP3
+```
