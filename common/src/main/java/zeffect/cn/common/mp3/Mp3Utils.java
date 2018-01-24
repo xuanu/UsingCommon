@@ -171,7 +171,7 @@ public class Mp3Utils {
                 // >= 1000000是要裁剪停止和指定的裁剪结尾不小于1秒，否则可能产生需要9秒音频
                 //裁剪到只有8.6秒，大多数音乐播放器是向下取整，这样对于播放器变成了8秒，
                 // 所以要裁剪比9秒多一秒的边界
-                if (timeStamp > end && timeStamp - end >= 1000000) {
+                if (timeStamp > end) {//&& timeStamp - end >= 1000000
                     break;
                 }
                 if (sampleSize <= 0) {
