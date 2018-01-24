@@ -104,4 +104,6 @@ class MainActivity : Activity(), View.OnClickListener {
         Snackbar.make(mView!!, message, Snackbar.LENGTH_SHORT).show()
     }
 
+
+
 }
