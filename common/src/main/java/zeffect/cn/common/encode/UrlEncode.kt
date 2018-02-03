@@ -39,13 +39,13 @@ object UrlEncode {
             start = matcher.start(0)
             end = matcher.end(0)
         }
-        return if (start >= end) {
+        return if (start >= end || start != 0) {
             //没有网址，直接转义
-            return Uri.encode(url, "$-_.+!*'()")
+            Uri.encode(url, "$-_.+!*'()")
         } else {
             val tempUrl = url.substring(end)
             val httpUrl = url.substring(start, end)
-            return httpUrl + Uri.encode(tempUrl, "$-_.+!*'()")
+            httpUrl + Uri.encode(tempUrl, "$-_.+!*'()")
         }
     }
 
