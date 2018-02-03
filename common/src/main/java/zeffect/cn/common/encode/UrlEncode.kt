@@ -1,6 +1,8 @@
 package zeffect.cn.common.encode
 
 import android.net.Uri
+import java.net.URLEncoder
+import java.util.regex.Pattern
 
 /**
  * 链接进行编码：http://www.jianshu.com/p/9be694c8fee2
@@ -22,7 +24,29 @@ object UrlEncode {
      * @return
      */
     fun encodeUrl(url: String): String {
-        return Uri.encode(url, "-![.:/,%?&=]")
+//        return Uri.encode(url, "-![.:/,%?&=]");//有一定的问题，如果链接时有%号需要转义就有问题。
+        if (url.isNullOrBlank()) return ""
+        val URL_REGEX = "((([A-Za-z]{3,9}:(?://)?)(?:[-;:&=+$,\\w]+@)?[A-Za-z0-9.-]+(:[0-9]+)?|(?:ww‌​w.|[-;:&=+$,\\w]+@)[A-Za-z0-9.-]+)((?:/[+~%/.\\w-_]*)?\\??(?:[-+=&;%@.\\w_]*)#?‌​(?:[\\w]*))?)"
+        val pattern = Pattern.compile(URL_REGEX)
+        val matcher = pattern.matcher(url)
+        var start = 0
+        var end = 0
+        while (matcher.find()) {
+//            for (i in 0 until matcher.groupCount()) {
+//                println("i:" + i + ",value:" + matcher.group(i) + ",start:" + matcher.start(i) + ",end:"
+//                        + matcher.end(i))
+//            }
+            start = matcher.start(0)
+            end = matcher.end(0)
+        }
+        return if (start >= end) {
+            //没有网址，直接转义
+            return Uri.encode(url, "$-_.+!*'()")
+        } else {
+            val tempUrl = url.substring(end)
+            val httpUrl = url.substring(start, end)
+            return httpUrl + Uri.encode(tempUrl, "$-_.+!*'()")
+        }
     }
 
     /***
