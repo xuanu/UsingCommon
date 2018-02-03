@@ -32,20 +32,22 @@ object UrlEncode {
         var start = 0
         var end = 0
         while (matcher.find()) {
-//            for (i in 0 until matcher.groupCount()) {
-//                println("i:" + i + ",value:" + matcher.group(i) + ",start:" + matcher.start(i) + ",end:"
-//                        + matcher.end(i))
-//            }
             start = matcher.start(0)
             end = matcher.end(0)
         }
-        return if (start >= end || start != 0) {
+        return if (start >= end) {
             //没有网址，直接转义
-            Uri.encode(url, "$-_.+!*'()")
+            Uri.encode(url, "-_.~!*'();:@&=+$,/?#[]")
         } else {
-            val tempUrl = url.substring(end)
-            val httpUrl = url.substring(start, end)
-            httpUrl + Uri.encode(tempUrl, "$-_.+!*'()")
+            var changeUrl = url
+            if (start > 0) {
+                changeUrl = url.substring(start)
+                start = 0
+                end -= start
+            }
+            val tempUrl = changeUrl.substring(end)
+            val httpUrl = changeUrl.substring(start, end)
+            httpUrl + Uri.encode(tempUrl, "-_.~!*'();:@&=+$,/?#[]")
         }
     }
 
