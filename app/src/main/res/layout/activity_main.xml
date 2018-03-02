@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                 android:id="@+id/root_layout"
-                                                 android:layout_width="match_parent"
-                                                 android:layout_height="match_parent"
-                                                 android:orientation="vertical">
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="这一栏，用来显示结果吧,自已动手往后滑"
-                        android:textColor="#ffffff"/>
+                        android:textColor="#ffffff" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -43,21 +43,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_launcher_background"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher" />
 
                 <zeffect.cn.common.view.DarkText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableRight="@mipmap/ic_launcher"
                     android:text="测试点击效果 "
-                    android:textColor="@color/colorAccent"/>
+                    android:textColor="@color/colorAccent" />
 
                 <zeffect.cn.common.view.DarkButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/ic_launcher"
                     android:text="这个是按钮"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/colorPrimary" />
             </LinearLayout>
 
             <LinearLayout
@@ -70,7 +70,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="这个布局用来测试手势监听"/>
+                    android:text="这个布局用来测试手势监听" />
             </LinearLayout>
 
             <HorizontalScrollView
@@ -85,61 +85,61 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="可以左右动,这一栏是用来测试nIntentUtils的功能"/>
+                        android:text="可以左右动,这一栏是用来测试nIntentUtils的功能" />
 
                     <Button
                         android:id="@+id/di3_open_phone_no_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打电话，没有设置号码"/>
+                        android:text="打电话，没有设置号码" />
 
                     <Button
                         android:id="@+id/di3_open_phone_with_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="调用打电话，带有号码：10086"/>
+                        android:text="调用打电话，带有号码：10086" />
 
                     <Button
                         android:id="@+id/di3_open_setting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打开设置"/>
+                        android:text="打开设置" />
 
                     <Button
                         android:id="@+id/di3_open_camera"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打开相机"/>
+                        android:text="打开相机" />
 
                     <Button
                         android:id="@+id/di3_open_sms"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打开短信，啥都不带"/>
+                        android:text="打开短信，啥都不带" />
 
                     <Button
                         android:id="@+id/di3_open_sms_with_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打开短信，带手机号"/>
+                        android:text="打开短信，带手机号" />
 
                     <Button
                         android:id="@+id/di3_open_sms_with_number_with_content"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打开短信，带手机号,带内容"/>
+                        android:text="打开短信，带手机号,带内容" />
 
                     <Button
                         android:id="@+id/di3_open_record_audio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打开录音"/>
+                        android:text="打开录音" />
 
                     <Button
                         android:id="@+id/di3_open_txl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="打开通讯录"/>
+                        android:text="打开通讯录" />
 
 
                 </LinearLayout>
@@ -157,13 +157,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="用来测试网络相关"/>
+                        android:text="用来测试网络相关" />
 
                     <Button
                         android:id="@+id/di4_getIp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="获取本机IP"/>
+                        android:text="获取本机IP" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -179,32 +179,32 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="用来App相关的功能"/>
+                        android:text="用来App相关的功能" />
 
                     <Button
                         android:id="@+id/di5_getMainApp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text="获取本机带界面的APP"/>
+                        android:text="获取本机带界面的APP" />
 
                     <Button
                         android:id="@+id/di5_user_install"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="用户安装的应用"/>
+                        android:text="用户安装的应用" />
 
                     <Button
                         android:id="@+id/di5_system"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="系统应用"/>
+                        android:text="系统应用" />
 
                     <Button
                         android:id="@+id/di5_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="全部应用"/>
+                        android:text="全部应用" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -212,7 +212,13 @@
                 android:id="@+id/di6_get_assets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="获取Assets里的文件：test的内容"/>
+                android:text="获取Assets里的文件：test的内容" />
+
+            <Button
+                android:id="@+id/readAndWriteFiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="读写文件测试，看看有无正确抛出异常" />
         </LinearLayout>
     </ScrollView>
 </android.support.design.widget.CoordinatorLayout>

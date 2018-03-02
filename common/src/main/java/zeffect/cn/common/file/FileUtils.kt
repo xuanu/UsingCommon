@@ -15,19 +15,20 @@ object FileUtils {
     /***
      * 拷贝文件，根据输入和输入自动选择。
      */
+    @Throws(FileNotFoundException::class)
     fun copy(input: String, output: String): Boolean {
         if (TextUtils.isEmpty(input) || TextUtils.isEmpty(output)) return false
         val inputFile = File(input)
         val outputFile = File(output)
         if (!inputFile.exists()) return false//输入文件不存在，更不对了。
-        if (!outputFile.exists()) {
-            return when {
+        return if (!outputFile.exists()) {
+            when {
                 inputFile.isFile -> copyFile(input, output)
                 inputFile.isDirectory -> copyFolder(input, output)
                 else -> false
             }
         } else {
-            return when {
+            when {
                 inputFile.isFile && outputFile.isFile -> copyFile(input, output)
                 inputFile.isDirectory && outputFile.isDirectory -> copyFolder(input, output)
                 else -> false
@@ -38,6 +39,7 @@ object FileUtils {
     /***
      * 复制文件，输入和输入都是文件，否则返回false
      */
+    @Throws(FileNotFoundException::class)
     fun copyFile(input: String, output: String): Boolean {
         if (TextUtils.isEmpty(input) || TextUtils.isEmpty(output)) return false
         val inputFile = File(input)
@@ -72,6 +74,7 @@ object FileUtils {
     /***
      * 拷贝文件夹
      */
+    @Throws(FileNotFoundException::class)
     fun copyFolder(input: String, output: String): Boolean {
         if (TextUtils.isEmpty(input) || TextUtils.isEmpty(output)) return false
         val inputFile = File(input)
@@ -101,6 +104,7 @@ object FileUtils {
      * 读取文件内容
      * @param filePath 路径
      */
+    @Throws(FileNotFoundException::class)
     fun read(filePath: String): String {
         if (TextUtils.isEmpty(filePath)) return ""
         val tempFile = File(filePath)
@@ -115,11 +119,16 @@ object FileUtils {
      * @param content 内容
      * @param append 是否追加
      */
+    @Throws(IOException::class)
     fun write(filePath: String, content: String, append: Boolean = false, charset: String = "UTF-8"): Boolean {
         try {
             if (TextUtils.isEmpty(filePath)) return false
             val tempFile = File(filePath)
-            if (!tempFile.exists() || tempFile.isDirectory) return false
+            if (!tempFile.exists()) {
+                tempFile.parentFile.mkdirs()
+                tempFile.createNewFile()
+            }
+            if (tempFile.isDirectory) return false
             val writer = BufferedWriter(OutputStreamWriter(FileOutputStream(filePath, append), charset))
             writer.write(content)
             writer.flush()

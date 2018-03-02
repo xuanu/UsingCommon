@@ -2,6 +2,7 @@ package zeffect.cn.usingcommon
 
 import android.app.Activity
 import android.os.Bundle
+import android.os.Environment
 import android.support.design.widget.Snackbar
 import android.text.TextUtils
 import android.view.MotionEvent
@@ -11,10 +12,12 @@ import android.widget.TextView
 import org.jetbrains.anko.find
 import zeffect.cn.common.app.AppUtils
 import zeffect.cn.common.assets.AssetsUtils
+import zeffect.cn.common.file.FileUtils
 import zeffect.cn.common.gesture.OnGesture
 import zeffect.cn.common.gesture.ZGesture
 import zeffect.cn.common.intent.IntentUtils
 import zeffect.cn.common.network.NetUtils
+import java.io.File
 
 class MainActivity : Activity(), View.OnClickListener {
     private var mZGesture: ZGesture? = null
@@ -60,6 +63,11 @@ class MainActivity : Activity(), View.OnClickListener {
             AppUtils.getApps(this, 1).forEach { showResult.text = "${showResult.text}......系统应用：${it.packageName}" }
         }
         find<View>(R.id.di6_get_assets).setOnClickListener { showResult.text = AssetsUtils.fileString(this, "test") }
+
+        find<View>(R.id.readAndWriteFiles).setOnClickListener {
+            FileUtils.read(File(Environment.getExternalStorageDirectory(), "1.txt").absolutePath)
+            FileUtils.write(File(Environment.getExternalStorageDirectory(), "2.txt").absolutePath, "写入内容${System.currentTimeMillis()}")
+        }
     }
 
     override fun onClick(view: View) {
@@ -80,7 +88,6 @@ class MainActivity : Activity(), View.OnClickListener {
     private val mOnGesture = object : OnGesture() {
 
 
-
         override fun on2LeftUp(pFloat: Float?) {
             super.on2LeftUp(pFloat)
             toast("双指向左抬起")
@@ -92,9 +99,6 @@ class MainActivity : Activity(), View.OnClickListener {
         }
 
 
-
-
-
     }
 
 
@@ -103,7 +107,6 @@ class MainActivity : Activity(), View.OnClickListener {
         if (message == null) message = "传入参数为Null"
         Snackbar.make(mView!!, message, Snackbar.LENGTH_SHORT).show()
     }
-
 
 
 }
