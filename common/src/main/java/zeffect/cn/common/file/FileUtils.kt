@@ -2,6 +2,7 @@ package zeffect.cn.common.file
 
 import android.text.TextUtils
 import java.io.*
+import java.nio.channels.FileChannel
 import java.security.MessageDigest
 
 
@@ -9,6 +10,93 @@ import java.security.MessageDigest
  * Created by Administrator on 2017/10/14.
  */
 object FileUtils {
+
+
+    /***
+     * 拷贝文件，根据输入和输入自动选择。
+     */
+    fun copy(input: String, output: String): Boolean {
+        if (TextUtils.isEmpty(input) || TextUtils.isEmpty(output)) return false
+        val inputFile = File(input)
+        val outputFile = File(output)
+        if (!inputFile.exists()) return false//输入文件不存在，更不对了。
+        if (!outputFile.exists()) {
+            return when {
+                inputFile.isFile -> copyFile(input, output)
+                inputFile.isDirectory -> copyFolder(input, output)
+                else -> false
+            }
+        } else {
+            return when {
+                inputFile.isFile && outputFile.isFile -> copyFile(input, output)
+                inputFile.isDirectory && outputFile.isDirectory -> copyFolder(input, output)
+                else -> false
+            }
+        }
+    }
+
+    /***
+     * 复制文件，输入和输入都是文件，否则返回false
+     */
+    fun copyFile(input: String, output: String): Boolean {
+        if (TextUtils.isEmpty(input) || TextUtils.isEmpty(output)) return false
+        val inputFile = File(input)
+        val outputFile = File(output)
+        if (!inputFile.exists()) return false//输入文件不存在，更不对了。
+        if (inputFile.isDirectory) return false
+        if (!outputFile.exists()) {
+            outputFile.parentFile.mkdirs()
+            try {
+                outputFile.createNewFile()
+            } catch (e: IOException) {
+            }
+        }
+        if (outputFile.isDirectory) return false
+        var inputChannel: FileChannel? = null
+        var outputChannel: FileChannel? = null
+        var success = false
+        try {
+            inputChannel = FileInputStream(inputFile).channel
+            outputChannel = FileOutputStream(outputFile).channel
+            outputChannel.transferFrom(inputChannel, 0, inputChannel.size())
+            success = true
+        } catch (e: java.lang.Exception) {
+            success = false
+        } finally {
+            inputChannel?.close()
+            outputChannel?.close()
+            return success
+        }
+    }
+
+    /***
+     * 拷贝文件夹
+     */
+    fun copyFolder(input: String, output: String): Boolean {
+        if (TextUtils.isEmpty(input) || TextUtils.isEmpty(output)) return false
+        val inputFile = File(input)
+        val outputFile = File(output)
+        if (!inputFile.exists()) return false//输入文件不存在，更不对了。
+        if (!inputFile.isDirectory) return false
+        if (!outputFile.exists()) outputFile.mkdirs()
+        if (!outputFile.isDirectory) return false
+        var copySuccess = true
+        inputFile.listFiles().forEach {
+            if (it.isFile) {
+                if (!copyFile(it.absolutePath, File(outputFile, it.name).absolutePath)) {
+                    copySuccess = false
+                    return@forEach
+                }
+            } else if (it.isDirectory) {
+                if (!copyFolder(it.absolutePath, File(outputFile, it.name).absolutePath)) {
+                    copySuccess = false
+                    return@forEach
+                }
+            }
+        }
+        return copySuccess
+    }
+
     /****
      * 读取文件内容
      * @param filePath 路径

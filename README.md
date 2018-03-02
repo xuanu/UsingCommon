@@ -139,6 +139,9 @@ FileUtils.read(path);//读取文件内容
 FileUtils.write(path,content,append);//写入文件，是否追加
 FileUtils.deleteFiles(path);//删除文件或文件夹
 FileUtils.getFileMd5(file);//读取文件MD5
+FileUtils.copy(input,output)//拷贝文件
+FileUtils.copyFile(input,output);//拷贝文件
+FileUtils.copyFolder(input,output);//拷贝文件夹
 ```
 
 - [OpenFiles.java](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/file/OpenFiles.java);//本地文件 打开方式。
