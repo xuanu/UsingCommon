@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.os.Environment
 import android.support.design.widget.Snackbar
 import android.text.TextUtils
-import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import org.jetbrains.anko.find
 import zeffect.cn.common.app.AppUtils
+import zeffect.cn.common.application.ExceptionHandler
 import zeffect.cn.common.assets.AssetsUtils
 import zeffect.cn.common.file.FileUtils
 import zeffect.cn.common.gesture.OnGesture
@@ -68,7 +68,14 @@ class MainActivity : Activity(), View.OnClickListener {
             FileUtils.read(File(Environment.getExternalStorageDirectory(), "1.txt").absolutePath)
             FileUtils.write(File(Environment.getExternalStorageDirectory(), "2.txt").absolutePath, "写入内容${System.currentTimeMillis()}")
         }
+
+        find<View>(R.id.testCatch).setOnClickListener {
+            TestBtn!!.text = "123456"
+        }
+
     }
+
+    private val TestBtn: TextView? = null;
 
     override fun onClick(view: View) {
         when (view.id) {

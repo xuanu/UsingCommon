@@ -163,3 +163,6 @@ clip(String inputPath, String outputPath, int start, int end);//裁剪MP3
 ```
 fun removePunctuation(input: String);//去掉标点。
 ```
+
+- [](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/application/ExceptionHandler.java);//异常处理类
+> Application onCreate时：ExceptionHandler.getInstance().init(applicationContext)，就可以了。

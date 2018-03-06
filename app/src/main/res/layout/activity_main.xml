@@ -219,6 +219,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="读写文件测试，看看有无正确抛出异常" />
+
+            <Button
+                android:id="@+id/testCatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试一个异常，看看程序有无记录" />
+
         </LinearLayout>
     </ScrollView>
 </android.support.design.widget.CoordinatorLayout>
