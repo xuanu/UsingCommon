@@ -45,9 +45,14 @@ object UrlEncode {
                 start = 0
                 end -= start
             }
-            val tempUrl = changeUrl.substring(end)
+            val tempUrl = Uri.encode(changeUrl.substring(end), "-_.~!*'();:@&=+$,/?#[]")
             val httpUrl = changeUrl.substring(start, end)
-            httpUrl + Uri.encode(tempUrl, "-_.~!*'();:@&=+$,/?#[]")
+            when {
+                tempUrl.endsWith("/") && httpUrl.startsWith("/") -> httpUrl + tempUrl.substring(1)
+                !tempUrl.endsWith("/") && !httpUrl.startsWith("/") -> "$httpUrl/$tempUrl"
+                else -> httpUrl + tempUrl
+            }
+
         }
     }
 
