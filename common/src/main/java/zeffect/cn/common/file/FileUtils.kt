@@ -12,6 +12,31 @@ import java.security.MessageDigest
 object FileUtils {
 
 
+    fun saveByte(bytes: ByteArray, path: File): File {
+        if (path.isDirectory) path.delete()
+        if (path.exists())
+            return path
+        else
+            path.parentFile.mkdirs()
+        try {
+            val bufferedInputStream = BufferedInputStream(ByteArrayInputStream(bytes))
+            val bufferedOutputStream = BufferedOutputStream(FileOutputStream(path))
+            var lend = 0
+            while ((lend .let { bufferedInputStream.read() } ) != -1) {
+                bufferedOutputStream.write(lend)
+            }
+            bufferedInputStream.close()
+            bufferedOutputStream.close()
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } finally {
+            return path
+        }
+    }
+
+
     /***
      * 拷贝文件，根据输入和输入自动选择。
      */
