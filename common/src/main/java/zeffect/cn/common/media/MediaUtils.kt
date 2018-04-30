@@ -46,11 +46,11 @@ class MediaUtils {
             stop()
             return
         }
-        val tempFile = File(nowPath)
-        if (!tempFile.exists()) {
-            stop()
-            return
-        }
+//        val tempFile = File(nowPath)
+//        if (!tempFile.exists()) {
+//            stop()
+//            return
+//        }
         if (mPlayer == null) {
             mPlayer = MediaPlayer()
         }

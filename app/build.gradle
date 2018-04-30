@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "zeffect.cn.usingcommon"
         minSdkVersion 14
@@ -27,6 +27,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation project(':common')
-    implementation 'com.android.support:design:26.0.0-beta1'
-    compile "org.jetbrains.anko:anko-commons:0.10.4"
+    implementation 'com.android.support:design:27.0.0'
+    implementation "org.jetbrains.anko:anko-commons:0.10.4"
 }
