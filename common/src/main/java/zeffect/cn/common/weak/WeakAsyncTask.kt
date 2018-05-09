@@ -1,5 +1,6 @@
 package zeffect.cn.common.weak
 
+import android.content.Context
 import android.os.AsyncTask
 
 import java.lang.ref.WeakReference
@@ -17,8 +18,8 @@ import java.lang.ref.WeakReference
  * @author zzx
  */
 
-abstract class WeakAsyncTask<Params, Progress, Result, WeakTarget>(pWeakTarget: WeakTarget?) : AsyncTask<Params, Progress, Result>() {
-    protected val mTarget: WeakReference<WeakTarget>
+abstract class WeakAsyncTask<Params, Progress, Result>(pWeakTarget: Context?) : AsyncTask<Params, Progress, Result>() {
+    protected val mTarget: WeakReference<Context>
 
     init {
         if (pWeakTarget == null) {
@@ -35,7 +36,7 @@ abstract class WeakAsyncTask<Params, Progress, Result, WeakTarget>(pWeakTarget: 
         }
     }
 
-    protected fun onPreExecute(pTarget: WeakTarget) {}
+    protected fun onPreExecute(pTarget: Context) {}
 
 
     override fun doInBackground(vararg params: Params): Result? {
@@ -47,7 +48,7 @@ abstract class WeakAsyncTask<Params, Progress, Result, WeakTarget>(pWeakTarget: 
         }
     }
 
-    protected abstract fun doInBackground(pTarget: WeakTarget, vararg params: Params): Result
+    protected abstract fun doInBackground(pTarget: Context, vararg params: Params): Result
 
 
     override fun onPostExecute(pResult: Result) {
@@ -58,7 +59,7 @@ abstract class WeakAsyncTask<Params, Progress, Result, WeakTarget>(pWeakTarget: 
     }
 
 
-    protected fun onPostExecute(pTarget: WeakTarget, pResult: Result) {}
+    protected fun onPostExecute(pTarget: Context, pResult: Result) {}
 
     override fun onProgressUpdate(vararg values: Progress) {
         val target = mTarget.get()
@@ -67,6 +68,6 @@ abstract class WeakAsyncTask<Params, Progress, Result, WeakTarget>(pWeakTarget: 
         }
     }
 
-    protected fun onProgressUpdate(pTarget: WeakTarget, vararg values: Progress) {}
+    protected fun onProgressUpdate(pTarget: Context, vararg values: Progress) {}
 
 }
