@@ -4,7 +4,7 @@
 
 ##### 类说明
 - [UrlEncode](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/encode/UrlEncode.kt),对Url加密。
-`UrlEncode#encodeUrl(String)`//URL编码，重复也有效果。
+`UrlEncode#encodeUrl(String)`//URL编码，重复也有效果。通过new URI是否抛异常来判断是否已经编码。
 
 - [OnClickFastListener](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/OnClickFastListener.kt),防止快速点击，可以设置间隔
 ```
@@ -12,22 +12,26 @@ View.setOnClickListener(new OnClickFastListener(){});
 View.setOnClickListener(new OnClickFastListener(time){});
 ```
 
-- [ZGesture](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/ZGesture.kt);手势监听类，监听了单双指的很多事件
+- ～～[ZGesture](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/ZGesture.kt);手势监听类，监听了单双指的很多事件～～
+> 写得不太好，弃用。
 > 事件见：[OnGesture](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/OnGesture.kt);
 > //使用方法与GestureDetector一致，仅对其进行封装，方便使用
 `ZGesture(context,OnGesture).onTouchEvent(event)`
 
 - [MediaUtils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/media/MediaUtils.kt); 封装了本地文件的MediaPlay播放，支持连续播放多个。
 ```
-MediaUtils.getInstance().play(String[] paths);//播放音频，只支持本地
-MediaUtils.getInstance().play(String[] paths,OnPlayer pOnPlayer);//OnPlayer只写的stop回调
+MediaUtils.getInstance().play(String paths);//播放音频，只支持本地
+MediaUtils.getInstance().play(String paths,OnPlayer pOnPlayer);//OnPlayer只写的stop回调
+MediaUtils.getInstance().play(List<String> paths,OnPlayer pOnPlayer);
 MediaUtils.getInstance().stop();//停止播放
+按理说应该也可以播放网络视频。
+一个音频出错，会播放下一个。
 ```
 
 - [SoundUtils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/media/SoundUtils.java);仅仅记录了如何使用。
 
 - [WeakAsyncTask](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/weak/WeakAsyncTask.kt);防止内存泄露的异步线程，常用。
-`new WeakAsyncTask<Void,Void,Void,Context>(this).execute();`
+`new WeakAsyncTask<Void,Void,Void>(context).execute();`
 
 - [WeakHandler](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/weak/WeakHandler.java);防止泄露的Handler;
 ` new  WeakHandler(new Handler.Callback(){...})`
@@ -89,10 +93,11 @@ NetUtils.INSTANCE.openSetting(activity); //打开设置界面
 NetUtils.INSTANCE.getWifiIp();//获取本机的ip ,需要网络开启，权限：android.Manifest.permission.INTERNET。
 NetUtils.INSTANCE.getMac();//获取本机mac;需要网络开启，权限：android.Manifest.permission.INTERNET  参考：[android4.0-7.0获取mac地址，方法是google提供。](http://blog.csdn.net/dazhang357/article/details/73903831);
 ```
-- [DarkButton.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkButton.kt);默认实现按下效果的控件
-- [DarkImage.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkImage.kt);默认实现按下效果的控件
-- [DarkText.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkText.kt);默认实现按下效果的控件
+- ~~[DarkButton.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkButton.kt);默认实现按下效果的控件~~
+- ~~[DarkImage.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkImage.kt);默认实现按下效果的控件~~
+- ~~[DarkText.kt](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/view/DarkText.kt);默认实现按下效果的控件~~
 > 默认实现了按下的效果，文字颜色的变化是用当前文字的透明度*0.5来实现的。
+> 单独启了个工程来做这个，方便单独引用，感觉常用。[DarkViews](https://github.com/xuanu/DarkViews);
 
 - [PackageUtils.java]();抄自：Trinea/[android-common](https://github.com/Trinea/android-common/blob/master/src/cn/trinea/android/common/util/PackageUtils.java)
 ```

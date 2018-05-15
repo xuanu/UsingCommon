@@ -1,7 +1,9 @@
 package zeffect.cn.common.encode
 
 import android.net.Uri
+import java.net.URI
 import java.net.URLEncoder
+import java.nio.charset.MalformedInputException
 import java.util.regex.Pattern
 
 /**
@@ -26,6 +28,8 @@ object UrlEncode {
     fun encodeUrl(url: String): String {
 //        return Uri.encode(url, "-![.:/,%?&=]");//有一定的问题，如果链接时有%号需要转义就有问题。
         if (url.isNullOrBlank()) return ""
+        val isUrlEncode=try{ val tempURI=URI(url);true} catch (e:MalformedInputException){false}
+        if (isUrlEncode) return url;
         val URL_REGEX = "((([A-Za-z]{3,9}:(?://)?)(?:[-;:&=+$,\\w]+@)?[A-Za-z0-9.-]+(:[0-9]+)?|(?:ww‌​w.|[-;:&=+$,\\w]+@)[A-Za-z0-9.-]+)((?:/[+~%/.\\w-_]*)?\\??(?:[-+=&;%@.\\w_]*)#?‌​(?:[\\w]*))?)"
         val pattern = Pattern.compile(URL_REGEX)
         val matcher = pattern.matcher(url)

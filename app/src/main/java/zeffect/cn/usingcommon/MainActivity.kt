@@ -16,6 +16,7 @@ import zeffect.cn.common.file.FileUtils
 import zeffect.cn.common.gesture.OnGesture
 import zeffect.cn.common.gesture.ZGesture
 import zeffect.cn.common.intent.IntentUtils
+import zeffect.cn.common.media.MediaUtils
 import zeffect.cn.common.network.NetUtils
 import java.io.File
 
@@ -71,6 +72,7 @@ class MainActivity : Activity(), View.OnClickListener {
 
         find<View>(R.id.testCatch).setOnClickListener {
             TestBtn!!.text = "123456"
+
         }
 
     }

@@ -24,17 +24,28 @@ import java.util.Arrays
 class MediaUtils {
     private var mPlayer: MediaPlayer? = null
 
+    fun play(path:String){
+        return play(Arrays.asList(path),null)
+    }
+
+    fun play(path:String,onPlayer: OnPlayer){
+        play(Arrays.asList(path),onPlayer)
+    }
+
+
     @JvmOverloads
-    fun play(paths: Array<String>, pOnPlayer: OnPlayer? = null) {
+    fun play(paths: List<String>, pOnPlayer: OnPlayer? = null) {
         if (pOnPlayer != null) addPlayListener(pOnPlayer)
         mPaths.clear()
-        mPaths.addAll(Arrays.asList(*paths))
+        mPaths.addAll(paths)
         if (!mPaths.isEmpty()) {
             play(0)
         }
     }
 
-    private val mPaths = ArrayList<String>()
+
+
+    private val mPaths = arrayListOf<String>()
 
     private fun play(position: Int) {
         if (mPaths.size - 1 < position || position < 0) {
@@ -43,7 +54,7 @@ class MediaUtils {
         }
         val nowPath = mPaths[position]
         if (TextUtils.isEmpty(nowPath)) {
-            stop()
+            play(position+1)
             return
         }
 //        val tempFile = File(nowPath)
@@ -76,11 +87,11 @@ class MediaUtils {
                     play(next)
             }
             mPlayer?.setOnErrorListener { player, arg1, arg2 ->
-                stop()
+                play(position+1)
                 true
             }
         } catch (e: IOException) {
-            stop()
+            play(position+1)
         }
 
     }
@@ -123,11 +134,15 @@ class MediaUtils {
 
     companion object {
         private var instance: MediaUtils? = null
+        fun getInstance():MediaUtils{
+            if (instance==null) {
+                synchronized(MediaUtils::class.java){
+                    if (instance==null) instance= MediaUtils();
+                }
+            }
+            return instance!!
+        }
     }
 
 }
-/**
- * 播放
- *
- * @param paths 本地路径的集合，这里没有考虑其它路径，只有本地路径。因为我用这个路径判断了这个文件在不在。
- */
+
