@@ -4,7 +4,7 @@
 
 ##### 类说明
 - [UrlEncode](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/encode/UrlEncode.kt),对Url加密。
-`UrlEncode#encodeUrl(String)`//URL编码，重复也有效果。通过new URI是否抛异常来判断是否已经编码。
+`UrlEncode#encodeUrl(String)`//URL编码。
 
 - [OnClickFastListener](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/OnClickFastListener.kt),防止快速点击，可以设置间隔
 ```
