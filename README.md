@@ -173,3 +173,8 @@ fun removePunctuation(input: String);//去掉标点。
 > Application onCreate时：ExceptionHandler.getInstance().init(applicationContext)，就可以了。
 
 - [RegexUtils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/regex/RegexUtils.kt);//正则匹配常用工具
+- [RegexUtil](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/regex/RegexUtil.java);//正则匹配常用工具
+```
+getImgStr(str);//查找html中的图片地址。
+findEngWords(str,minlength);分隔英文单词
+```
