@@ -1,6 +1,8 @@
 # UsingCommon
 收集一点公共类，大部分是挑出来的。
-> 本库暂时没有引用第三方的包，尽量做到最少。
+> 本库暂时没有引用第三方的包，尽量做到最少。  
+
+> 引用方法：[![](https://jitpack.io/v/xuanu/UsingCommon.svg)](https://jitpack.io/#xuanu/UsingCommon)  
 
 ##### 类说明
 - [UrlEncode](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/encode/UrlEncode.kt),对Url加密。
