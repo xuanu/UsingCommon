@@ -179,4 +179,5 @@ fun removePunctuation(input: String);//去掉标点。
 ```
 getImgStr(str);//查找html中的图片地址。
 findEngWords(str,minlength);分隔英文单词
+appendImgHead(html,imgHead);//如果html里的图片没有带http://头，可以添加默认的头
 ```
