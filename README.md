@@ -32,8 +32,8 @@ MediaUtils.getInstance().stop();//停止播放
 
 - [SoundUtils](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/media/SoundUtils.java);仅仅记录了如何使用。
 
-- [WeakAsyncTask](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/weak/WeakAsyncTask.kt);防止内存泄露的异步线程，常用。
-`new WeakAsyncTask<Void,Void,Void>(context).execute();`
+- [doAsync](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/weak/doAsync.java);防止内存泄露的异步线程，常用。
+`new doAsync<Void,Void,Void>(context).execute();`
 
 - [WeakHandler](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/weak/WeakHandler.java);防止泄露的Handler;
 ` new  WeakHandler(new Handler.Callback(){...})`
