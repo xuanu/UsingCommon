@@ -14,7 +14,7 @@ View.setOnClickListener(new OnClickFastListener(){});
 View.setOnClickListener(new OnClickFastListener(time){});
 ```
 
-- ～～[ZGesture](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/ZGesture.kt);手势监听类，监听了单双指的很多事件～～
+- ~~[ZGesture](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/ZGesture.kt);手势监听类，监听了单双指的很多事件~~
 > 写得不太好，弃用。
 > 事件见：[OnGesture](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/gesture/OnGesture.kt);
 > //使用方法与GestureDetector一致，仅对其进行封装，方便使用
@@ -180,4 +180,9 @@ fun removePunctuation(input: String);//去掉标点。
 getImgStr(str);//查找html中的图片地址。
 findEngWords(str,minlength);分隔英文单词
 appendImgHead(html,imgHead);//如果html里的图片没有带http://头，可以添加默认的头
+```
+
+- [ScreenDensity.java](https://github.com/xuanu/UsingCommon/blob/master/common/src/main/java/zeffect/cn/common/density/ScreenDensity.java);//今日头条的屏幕适配方案
+```
+ScreenDensity.setDensity(application,with);//Application.onCreat中调用,具体实现参考：https://blog.csdn.net/u013000152/article/details/80855315
 ```
